@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+:root {
+  --primary-color: #f5f5f5;
+  --primary-text-color: #f5f5f5;
+  --secondary-color: #95d47f;
+  --terciary-color: #020024;
+  --card-color: #ffffff;
+  --card-border: 1px solid #e9e9e9f6;
+  --navbar-color: linear-gradient(
+    135deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(27, 60, 89, 1) 78%
+  );
+  --transition-speed: 400ms;
+}
+body::-webkit-scrollbar {
+  width: 0.35rem;
+  animation: var(--transition-speed);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--secondary-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--terciary-color);
+}
+
+a {
+  color: var(--primary-text-color);
+}
+a:visited {
+  color: var(--primary-text-color);
+}
+a:hover {
+  color: var(--primary-text-color);
+}
+a:active {
+  color: var(--primary-text-color);
+}
+body#css-override {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+}
+.navbar {
+  position: fixed;
+  background: var(--navbar-color);
+  transition: width 600ms ease;
+  width: 5rem;
+  height: 100vh;
+  text-align: center;
+}
+h4 {
+  color: var(--primary-text-color);
+}
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.navbar ul li {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.navbar ul li:last-child {
+  position: absolute;
+  bottom: 0;
+  transition: 1.5s ease-in-out;
+}
+.navbar ul li:last-child:hover {
+  transform: rotate(720deg);
+}
+#css-override .navbar ul .svg-inline--fa {
+  font-size: 32px;
+  transition: var(--transition-speed);
+}
+#css-override .navbar ul .svg-inline--fa:hover {
+  color: var(--secondary-color);
+}
+#css-override .navbar ul a {
+  align-items: center;
+}
+.theme-switch-wrapper {
+  margin-left: 0.7rem;
+  margin-top: 30vh;
+  display: flex;
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  bottom: 5rem;
+  width: 60px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background: url("./day_sky.png");
+  background-size: cover;
+  background-position: center;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.slider:before {
+  background-color: #f7f739;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: var(--transition-speed);
+  width: 26px;
+}
+input:checked + .slider {
+  background: url("./night_sky.png");
+  background-position: right;
+  background-size: cover;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background: url("./moon.png");
+  background-size: cover;
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+main {
+    background: var(--primary-color);
+    margin-left: 5rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 35px;
+  }
+  .card {
+    background: var(--card-color);
+    height: 250px;
+    border-radius: 8px;
+    max-width: 270px;
+    transition: var(--transition-speed);
+    box-sizing: border-box;
+  }
+  .card:hover{
+      border: var(--card-border);
+  }
+  .card1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .card2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .card3 {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .card4 {
+    grid-area: 1 / 4 / 2 / 5;
+  }
+  .card5 {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .card6 {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .card7 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+  .card8 {
+    grid-area: 2 / 4 / 3 / 5;
+  }
+  .card9 {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .card10 {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+  .card11 {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+  .card12 {
+    grid-area: 3 / 4 / 4 / 5;
+  }
+  .card13 {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .card14 {
+    grid-area: 4 / 2 / 5 / 3;
+  }
+  .card15 {
+    grid-area: 4 / 3 / 5 / 4;
+  }
+  .card16 {
+    grid-area: 4 / 4 / 5 / 5;
+  }
+  
+@media only screen and (max-width: 600px) {
+  .cards{
+      display: block;
+  }
+  .card{
+      margin-bottom: 15px;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+}
