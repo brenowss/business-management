@@ -159,10 +159,9 @@ main {
     max-width: 270px;
     transition: var(--transition-speed);
     box-sizing: border-box;
+    padding: 2px 0 0 2px;
   }
-  .card:hover{
-      border: var(--card-border);
-  }
+
   .card1 {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -226,4 +225,12 @@ main {
     width: 5rem;
     height: 100vh;
   }
+}
+#css-override div div svg rect:nth-child(2){
+    fill: var(--card-color);
+    border-radius: 8px;
+}
+#css-override g g text, #css-override div div div svg g text:first-child{
+    fill: var(--card-text);
+    font-size: 0.7rem;
 }
