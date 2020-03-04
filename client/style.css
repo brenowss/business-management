@@ -1,5 +1,18 @@
+/* 
+
+author: Breno Fiorese
+email: brenofiorese01@gmail.com
+created-at: February 02, 2020
+
+*/
+
+/* comments are in brazilian portuguese */
+
+/* para sobrepor alguns estilos, usar o ID #css-override */
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 :root {
+  /* definindo as cores do app */
   --primary-color: #f5f5f5;
   --primary-text-color: #f5f5f5;
   --secondary-color: #95d47f;
@@ -13,6 +26,8 @@
   );
   --transition-speed: 400ms;
 }
+
+/* personalizando a scrollbar */
 body::-webkit-scrollbar {
   width: 0.35rem;
   animation: var(--transition-speed);
@@ -26,6 +41,7 @@ body::-webkit-scrollbar-thumb {
   background: var(--terciary-color);
 }
 
+/* tirando a cor roxa dos links que ja foram visitados */
 a {
   color: var(--primary-text-color);
 }
@@ -38,6 +54,7 @@ a:hover {
 a:active {
   color: var(--primary-text-color);
 }
+
 body#css-override {
   margin: 0;
   padding: 0;
@@ -86,6 +103,8 @@ h4 {
 #css-override .navbar ul a {
   align-items: center;
 }
+
+/* configuração do slider de dark theme */
 .theme-switch-wrapper {
   margin-left: 0.7rem;
   margin-top: 30vh;
@@ -140,83 +159,87 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/* fim do slider de dark theme */
+
 main {
-    background: var(--primary-color);
-    margin-left: 5rem;
-  }
+  background: var(--primary-color);
+  margin-left: 5rem;
+}
+
+/* Configuração do grid da pagina */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 35px;
+}
+.card {
+  background: var(--card-color);
+  height: 250px;
+  border-radius: 8px;
+  max-width: 270px;
+  transition: var(--transition-speed);
+  box-sizing: border-box;
+  padding: 2px 0 0 2px;
+}
+
+.card1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.card2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.card3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.card4 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+.card5 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+.card6 {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.card7 {
+  grid-area: 2 / 3 / 3 / 4;
+}
+.card8 {
+  grid-area: 2 / 4 / 3 / 5;
+}
+.card9 {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.card10 {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.card11 {
+  grid-area: 3 / 3 / 4 / 4;
+}
+.card12 {
+  grid-area: 3 / 4 / 4 / 5;
+}
+.card13 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.card14 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+.card15 {
+  grid-area: 4 / 3 / 5 / 4;
+}
+.card16 {
+  grid-area: 4 / 4 / 5 / 5;
+}
+/* fim da configuração do grid */
+@media only screen and (max-width: 600px) {
   .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    padding: 35px;
+    display: block;
   }
   .card {
-    background: var(--card-color);
-    height: 250px;
-    border-radius: 8px;
-    max-width: 270px;
-    transition: var(--transition-speed);
-    box-sizing: border-box;
-    padding: 2px 0 0 2px;
-  }
-
-  .card1 {
-    grid-area: 1 / 1 / 2 / 2;
-  }
-  .card2 {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  .card3 {
-    grid-area: 1 / 3 / 2 / 4;
-  }
-  .card4 {
-    grid-area: 1 / 4 / 2 / 5;
-  }
-  .card5 {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-  .card6 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  .card7 {
-    grid-area: 2 / 3 / 3 / 4;
-  }
-  .card8 {
-    grid-area: 2 / 4 / 3 / 5;
-  }
-  .card9 {
-    grid-area: 3 / 1 / 4 / 2;
-  }
-  .card10 {
-    grid-area: 3 / 2 / 4 / 3;
-  }
-  .card11 {
-    grid-area: 3 / 3 / 4 / 4;
-  }
-  .card12 {
-    grid-area: 3 / 4 / 4 / 5;
-  }
-  .card13 {
-    grid-area: 4 / 1 / 5 / 2;
-  }
-  .card14 {
-    grid-area: 4 / 2 / 5 / 3;
-  }
-  .card15 {
-    grid-area: 4 / 3 / 5 / 4;
-  }
-  .card16 {
-    grid-area: 4 / 4 / 5 / 5;
-  }
-  
-@media only screen and (max-width: 600px) {
-  .cards{
-      display: block;
-  }
-  .card{
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
 @media only screen and (min-width: 600px) {
@@ -226,11 +249,13 @@ main {
     height: 100vh;
   }
 }
-#css-override div div svg rect:nth-child(2){
-    fill: var(--card-color);
-    border-radius: 8px;
+/* personalização dos charts */
+#css-override div div svg rect:nth-child(2) {
+  fill: var(--card-color);
+  border-radius: 8px;
 }
-#css-override g g text, #css-override div div div svg g text:first-child{
-    fill: var(--card-text);
-    font-size: 0.7rem;
+#css-override g g text,
+#css-override div div div svg g text:first-child {
+  fill: var(--card-text);
+  font-size: 0.7rem;
 }

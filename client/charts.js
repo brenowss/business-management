@@ -75,6 +75,7 @@ function drawBarChart() {
     height: chart_height,
     bar: { groupWidth: "95%" },
     legend: { position: "none" },
+    fontName: "Montserrat",
     tooltip: { isHtml: true }
   };
   var chart = new google.visualization.BarChart(
@@ -107,6 +108,7 @@ function drawColumnChart() {
     height: chart_height,
     bar: { groupWidth: "95%" },
     legend: { position: "none" },
+    fontName: "Montserrat",
     tooltip: { isHtml: true }
   };
   var chart = new google.visualization.ColumnChart(
@@ -136,6 +138,7 @@ function drawTrendlineChart() {
         title: "Trendline of something",
         height: chart_height,
         width: chart_width,
+        fontName: "Montserrat",
         legend: 'none',
         colors: ['#9575cd', '#33ac71'],
         pointShape: 'diamond',
