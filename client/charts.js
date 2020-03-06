@@ -33,7 +33,7 @@ function drawPieChart() {
 
   // Set chart options
   var options = {
-    title: "How Much Pizza I Ate Last Night",
+    title: "How Much Pizza I Ate",
     width: chart_width,
     height: chart_height,
     is3D: true,

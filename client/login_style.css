@@ -142,12 +142,15 @@ h2.text-center {
   bottom: 0;
   transform: scaleX(-1);
 }
-.right-screen img#investment {
-  height: 55vh;
+.right-screen .investment {
   position: absolute;
-  right: 7%;
-  top: 20%;
+  right: -30%;
+  top: 10%;
   opacity: 0.5;
+  transition: all 3s ease-in-out;
+}
+.right-screen .investment.animate{
+  right: 7% ;
 }
 .login_return {
   position: absolute;

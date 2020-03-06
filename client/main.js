@@ -19,3 +19,16 @@ var root = document.documentElement;
         root.style.setProperty('--card-border', '1px solid #e9e9e9f6')
     }
   }
+
+var modal_close = document.getElementById("modal_close");
+var modal_open = document.getElementById("modal_open");
+var modal = document.getElementById("cfg_modal");
+
+modal_close.addEventListener("click", function(){
+  modal.classList.add("hidden");
+});
+
+modal_open.addEventListener("click", function(){
+  modal.classList.remove("hidden");
+});
+

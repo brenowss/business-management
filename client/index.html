@@ -36,7 +36,7 @@
             <a href="" class="nav-link"><i class="fas fa-chart-bar"></i></a>
           </li>
           <li>
-            <a href="" class="nav-link config"><i class="fas fa-cog"></i></a>
+            <button id="modal_open" class="nav-link config"><i class="fas fa-cog"></i></button>
           </li>
         </ul>
         <div class="theme-switch-wrapper">
@@ -67,6 +67,45 @@
         <div class="card card16"></div>
       </div>
     </main>
+
+    <!-- Modal de configuração -->
+    <div class="cfg-modal hidden" id="cfg_modal">
+      <h2>Configurações</h2>
+      <button id="modal_close"><img src="./close.svg" alt="Fechar configurações"></button>
+      <div class="cfg">
+        <div class="cfg-wrapper">
+          <div class="cfg-label">
+            Primeira Configuração
+          </div>
+          <div class="cfg-toggle">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div> <div class="cfg-wrapper">
+          <div class="cfg-label">
+            Segunda Configuração
+          </div>
+          <div class="cfg-toggle">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div> <div class="cfg-wrapper">
+          <div class="cfg-label">
+            Terceira Configuração
+          </div>
+          <div class="cfg-toggle">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
       integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
