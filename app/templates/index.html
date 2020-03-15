@@ -12,8 +12,8 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-    <script src="./charts.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <script src="{{ url_for('static', filename='./charts.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}" />
     <title>Business Management</title>
   </head>
   <body id="css-override">
@@ -71,7 +71,7 @@
     <!-- Modal de configuração -->
     <div class="cfg-modal hidden" id="cfg_modal">
       <h2>Configurações</h2>
-      <button id="modal_close"><img src="./close.svg" alt="Fechar configurações"></button>
+      <button id="modal_close"><img src="{{ url_for('static', filename='./close.svg') }}" alt="Fechar configurações"></button>
       <div class="cfg">
         <div class="cfg-wrapper">
           <div class="cfg-label">
@@ -111,6 +111,6 @@
       integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
       crossorigin="anonymous"
     ></script>
-    <script src="./main.js"></script>
+    <script src="{{ url_for('static', filename='./main.js') }}"></script>
   </body>
 </html>

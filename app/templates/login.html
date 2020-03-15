@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login_style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}" />
     <title>Entre com sua conta empresarial</title>
   </head>
   <body>
@@ -34,9 +34,10 @@
               id="senha"
               placeholder="Senha"
             />
-            <a href="">Esqueceu sua senha?</a>
-            <button id="form_button">Entrar</button>
           </form>
+          <a href="">Esqueceu sua senha?</a>
+<!--          <a href="">ENtrar?</a>-->
+          <button  id="form_button" ><a href="{{ url_for('home')}}">Entrar</a></button>
         </div>
         <div class="magic-wrapper">
           <h1 class="banner">
@@ -46,7 +47,7 @@
           <div class="magic-button">
             <a href="#register" class="account-request" id="account-request" onclick="$('.investment').addClass('animate');"
               >Solicite agora
-              <img src="./arrow.svg" alt="Seta, solicite sua conta"
+              <img src="{{ url_for('static', filename='./arrow.svg') }}" alt="Seta, solicite sua conta"
             /></a>
           </div>
         </div>
