@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}" /> comentado durante desenvolvimento para poder utilizar o live reload --> 
+    <link rel="stylesheet" href="../static/login_style.css">
     <title>Entre com sua conta empresarial</title>
   </head>
   <body>
@@ -36,8 +37,13 @@
             />
           </form>
           <a href="">Esqueceu sua senha?</a>
-<!--          <a href="">ENtrar?</a>-->
           <button  id="form_button" ><a href="{{ url_for('home')}}">Entrar</a></button>
+          <div class="inner-account-request">
+            <a href="#register" class="account-request text-center" onclick="$('.investment').addClass('animate');"
+              >Ainda não tem sua conta? <br>
+              Clique aqui!
+          </a>
+          </div>
         </div>
         <div class="magic-wrapper">
           <h1 class="banner">
@@ -47,8 +53,11 @@
           <div class="magic-button">
             <a href="#register" class="account-request" id="account-request" onclick="$('.investment').addClass('animate');"
               >Solicite agora
-              <img src="{{ url_for('static', filename='./arrow.svg') }}" alt="Seta, solicite sua conta"
-            /></a>
+              <!-- <img src="{{ url_for('static', filename='./arrow.svg') }}" alt="Seta, solicite sua conta"
+            /> comentado durante desenvolvimento para poder utilizar o live reload -->
+            <img src="../static/arrow.svg" alt="Seta, solicite sua conta"
+            />
+          </a>
           </div>
         </div>
       </div>

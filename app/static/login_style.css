@@ -28,7 +28,9 @@ a:hover {
 a:active {
   color: var(--primary-text-color);
 }
-
+.text-center{
+  text-align: center !important;
+}
 * {
   font-family: "Montserrat", sans-serif;
   transition: var(--transition-speed);
@@ -64,10 +66,10 @@ body {
 .login-form-div {
   height: 430px;
   width: 350px;
+  max-width: 40%;
+  display: inline-block;
   background: var(--terciary-color);
-  position: absolute;
-  left: 17%;
-  top: 8%;
+  margin: 5% 0 0 15%;
   border-radius: 8px;
   -webkit-box-shadow: -21px 16px 1px 2px #00000071;
   box-shadow: -21px 16px 1px 2px #00000071;
@@ -107,9 +109,8 @@ h2.text-center {
   text-align: center;
 }
 .magic-wrapper {
-  position: absolute;
-  right: 220px;
-  top: 120px;
+  float: right;
+  margin: 10% 20% 0 0;
 }
 #account-request {
   border: none;
@@ -121,8 +122,20 @@ h2.text-center {
   color: var(--terciary-color);
   text-decoration: none;
 }
-.account-request:hover {
+#account-request:hover {
   margin-left: 10px;
+}
+.inner-account-request{
+  display: none;
+  margin-top: 30px;
+  color: white;
+  text-align: center;
+}
+.inner-account-request a{
+  font-size: 15px;
+}
+.inner-account-request img{
+  height: 15px;
 }
 .magic-button img {
   height: 2rem;
@@ -149,8 +162,8 @@ h2.text-center {
   opacity: 0.5;
   transition: all 3s ease-in-out;
 }
-.right-screen .investment.animate{
-  right: 7% ;
+.right-screen .investment.animate {
+  right: 7%;
 }
 .login_return {
   position: absolute;
@@ -165,4 +178,31 @@ h2.text-center {
 #login_return_anchor {
   color: var(--terciary-color);
   text-decoration: none;
+}
+@media only screen and (max-width: 1200px) {
+  .login-form-div {
+    margin: 5% 0 0 5%;
+  }
+  .magic-wrapper {
+    margin: 10% 5% 0 0;
+  }
+}
+@media only screen and (max-width: 860px) {
+  .login-form-div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    padding: 40px 35px;
+    margin: 0;
+  }
+  .magic-wrapper {
+    display: none;
+  }
+  .inner-account-request{
+    display: block;
+  }
+  .right-screen{
+    display: none;
+  }
 }
