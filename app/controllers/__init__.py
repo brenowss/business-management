@@ -1,7 +1,6 @@
 from flask import render_template
 from app import app
-from app.models import Database
-
+from app.controllers.data_processing import open_orders, open_bills
 
 @app.route('/')
 def index():
@@ -10,11 +9,8 @@ def index():
 
 @app.route('/home/')
 def home():
-    db = Database()
-    open_order = db.open_order()
-    for i in open_order:
-        i['vlr_aberto'] = int(i['vlr_aberto'])
-    open_order = sorted(open_order, key=lambda open_order: open_order['vlr_aberto'])
-    open = open_order[len(open_order)-20:]
-    return render_template('index.html', open = open)
+    open_order = open_orders()
+    open_bill = open_bills()
+    return render_template('index.html', open_order=open_order, open_bill=open_bill)
+
 

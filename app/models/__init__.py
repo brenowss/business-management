@@ -21,3 +21,10 @@ class Database:
                             order by pi.vlt_total asc;""")
         result = self.cur.fetchall()
         return result
+
+    def open_bills(self):
+        self.cur.execute("""select ni.vlt_total, nb.data_docto from nota_item ni join nota_base nb on 
+                            nb.num_documento = ni.key_nota where nb.status_nota = 'A' and nb.data_docto IS NOT NULL 
+                            order by vlt_total;""")
+        result = self.cur.fetchall()
+        return result

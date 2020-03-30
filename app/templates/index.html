@@ -40,14 +40,14 @@ function drawPieChart() {
   data.addColumn("string", "Topping");
   data.addColumn("number", "Slices");
   data.addRows([
-    {% for i in open %}
+    {% for i in open_order %}
     {{[i["nm_cliente"], i['vlr_aberto']] | safe}},
     {% endfor %}
   ]);
 
   // Set chart options
   var options = {
-    title: "How Much Pizza I Ate",
+    title: "Pedidos abertos",
     width: chart_width,
     height: chart_height,
     is3D: true,
@@ -134,22 +134,14 @@ function drawColumnChart() {
 //Trendline chart
 function drawTrendlineChart() {
     var data = google.visualization.arrayToDataTable([
-        ['X', 'Y', 'Z'],
-        [0, 4, 5],
-        [1, 2, 6],
-        [2, 4, 8],
-        [3, 6, 10],
-        [4, 4, 11],
-        [5, 8, 13],
-        [6, 12, 15],
-        [7, 15, 19],
-        [8, 25, 21],
-        [9, 34, 23],
-        [10, 50, 27]
+        ['X', 'Y'],
+        {% for i in open_bill %}
+        [new Date{{i['data_docto'] | safe}}, {{i['vlt_total'] | safe}}],
+        {% endfor %}
       ]);
 
       var options = {
-        title: "Trendline of something",
+        title: "NOTAS ABERTAS",
         height: chart_height,
         width: chart_width,
         fontName: "Montserrat",
