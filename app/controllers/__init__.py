@@ -15,6 +15,6 @@ def home():
     return render_template('index.html', open_order=open_order, open_bill=open_bill)
 
 
-@app.route('/landing')
+@app.route('/landing/')
 def landing():
     return render_template('landing-page.html')

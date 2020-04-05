@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@font-face {
+  font-family: "Sen Extra Bold";
+  src: url("../static/fonts/Sen-ExtraBold.ttf");
+}
 :root {
   /* definindo as cores do app */
   --primary-color: #f5f5f5;
@@ -58,6 +62,7 @@ body {
 .bottom svg#left_wave {
   position: absolute;
   bottom: 0;
+  z-index: -9;
 }
 .bottom svg#left_wave path,
 .bottom-right svg#right_wave path {
@@ -68,6 +73,8 @@ body {
   width: 350px;
   max-width: 40%;
   display: inline-block;
+  position: relative;
+  z-index: 9999;
   background: var(--terciary-color);
   margin: 5% 0 0 15%;
   border-radius: 8px;
@@ -96,6 +103,7 @@ label {
 }
 #form_button {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   border-radius: 4px;
   margin-top: 20px;
@@ -103,6 +111,7 @@ label {
   color: var(--terciary-color);
   font-weight: 600;
   border: none;
+  text-align: center;
   background: var(--secondary-color);
 }
 h2.text-center {
@@ -179,6 +188,7 @@ h2.text-center {
   color: var(--terciary-color);
   text-decoration: none;
 }
+
 @media only screen and (max-width: 1200px) {
   .login-form-div {
     margin: 5% 0 0 5%;
@@ -204,5 +214,25 @@ h2.text-center {
   }
   .right-screen{
     display: none;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .login-form-div {
+    margin: 15px 0;
+    width: 80%;
+    max-width: 100%;
+    transform: translate(-50%, -60%);
+  }
+  .bottom svg#left_wave {
+    height: auto;
+    width: 100%;
+  }
+  .logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+  .logo h1 {
+    font-family: "Sen Extra Bold";
   }
 }
