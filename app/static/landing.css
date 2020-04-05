@@ -81,6 +81,9 @@ li {
   color: #fffde8;
   text-decoration: none;
 }
+li:hover {
+  color: #929291;
+}
 header .illustration {
   width: 600px;
   float: right;
