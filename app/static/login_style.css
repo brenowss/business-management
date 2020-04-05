@@ -48,6 +48,9 @@ body {
   background: var(--primary-color);
   scroll-behavior: smooth;
 }
+.logo {
+  display: none;
+}
 .wrapper {
   display: inline-block;
 }
