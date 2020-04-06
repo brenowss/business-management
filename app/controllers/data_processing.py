@@ -1,27 +1,32 @@
 from app.models import Database
-from datetime import datetime
 
 
-def open_orders():
+class DataProcessing:
+
     db = Database()
-    open_order = db.open_order()
-    for i in open_order:
-        i['vlr_aberto'] = int(i['vlr_aberto'])
-    open_order = sorted(open_order, key=lambda open_order: open_order['vlr_aberto'])
-    open_order = open_order[len(open_order) - 20:]
-    return open_order
 
+    def __init__(self, data):
+        self.data = data
 
-def open_bills():
-    db = Database()
-    open_bills = db.open_bills()
-    a = ()
-    for i in open_bills:
-        i['vlt_total'] = int(i['vlt_total'])
-    for i in open_bills:
+    def open_orders(self):
+        for i in self.data:
+            i['vlr_aberto'] = int(i['vlr_aberto'])
+        self.data = sorted(self.data, key=lambda data: data['vlr_aberto'])
+        self.data = self.data[len(self.data) - 20:]
+        return self.data
 
-        b = str(i['data_docto'])
-        b = b.replace('-', ' ')
-        i['data_docto'] = tuple(b.split())
-    return open_bills
+    def open_bills(self):
+        for i in self.data:
+            i['vlt_total'] = int(i['vlt_total'])
+        for i in self.data:
+            b = str(i['data_docto'])
+            b = b.replace('-', ' ')
+            i['data_docto'] = tuple(b.split())
+        return self.data
+
+    def top_sellers(self):
+        for i in self.data:
+            i['vlr_vendedor'] = int(i['vlr_vendedor'])
+        return self.data
+
 
