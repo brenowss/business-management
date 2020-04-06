@@ -12,9 +12,8 @@
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
-<!--    <script src="{{ url_for('static', filename='./charts.js') }}"></script>-->
     <script>
-      var chart_width = 265;
+      var chart_width = 260;
 var chart_height = 245;
 // Load the Visualization API and the corechart package.
 google.charts.load("current", { packages: ["corechart"] });
@@ -68,11 +67,10 @@ function drawPieChart() {
 function drawBarChart() {
   // Create the data table.
   var data = google.visualization.arrayToDataTable([
-    ["Element", "Density", { role: "style" }],
-    ["Copper", 8.94, "#b87333"],
-    ["Silver", 10.49, "silver"],
-    ["Gold", 19.3, "gold"],
-    ["Platinum", 21.45, "color: #e5e4e2"]
+    ["Nome", "Quantidade", { role: "style" }],
+    {% for i in top_seller %}
+    {{ [i['nm_representante'], i['vlr_vendedor'], "#b87333"] | safe }},
+    {% endfor %}
   ]);
 
   var view = new google.visualization.DataView(data);
@@ -84,7 +82,7 @@ function drawBarChart() {
   ]);
 
   var options = {
-    title: "Density of Precious Metals",
+    title: "Top Vendedores",
     width: chart_width,
     height: chart_height,
     bar: { groupWidth: "95%" },
@@ -169,6 +167,7 @@ function drawTrendlineChart() {
 }
 
     </script>
+    <!--    <script src="{{ url_for('static', filename='./charts.js') }}"></script>-->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}" />
     <title>Business Management</title>

@@ -11,7 +11,7 @@ class Database:
                                    DictCursor)
         self.cur = self.con.cursor()
 
-    def open_order(self):
+    def open_order_sql(self):
         self.cur.execute("""select sum(pi.vlt_total) as vlr_aberto, pb.cod_cliente, pb.nm_cliente
                             from pedido_base pb 
                               join ped_item pi on pi.key_pedido = pb.num_pedido
@@ -22,9 +22,29 @@ class Database:
         result = self.cur.fetchall()
         return result
 
-    def open_bills(self):
-        self.cur.execute("""select ni.vlt_total, nb.data_docto from nota_item ni join nota_base nb on 
+    def open_bills_sql(self):
+        self.cur.execute("""select nb.num_documento, sum(ni.vlt_total) as vlt_total, nb.data_docto from nota_item ni join nota_base nb on 
                             nb.num_documento = ni.key_nota where nb.status_nota = 'A' and nb.data_docto IS NOT NULL 
-                            order by vlt_total;""")
+                            group by ni.key_nota order by vlt_total;""")
         result = self.cur.fetchall()
         return result
+
+    def top_seller_sql(self):
+        self.cur.execute("""select sum(pi.vlt_total) as vlr_vendedor, rep.nm_representante
+                                from pedido_base pb 
+                                join ped_item pi on pi.key_pedido = pb.num_pedido
+                                join representantes rep on rep.cod_representante =  pb.cod_vendedor
+                            group by pb.cod_vendedor order by vlr_vendedor;""")
+        result = self.cur.fetchall()
+        return result
+
+    def top_products(self):
+        self.cur.execute("""select sum(ni.vlt_total) as valor_produtos, ni.nm_produto
+                                from nota_base nb join nota_item ni on ni.key_nota = nb.key_nota
+                                where nb.status_nota = 'F'
+                                group by ni.cod_produto
+                                ORDER BY  sum(ni.vlt_total) DESC
+                            LIMIT 10;""")
+        result = self.cur.fetchall()
+        return result
+
