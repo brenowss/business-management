@@ -3,4 +3,4 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from app import controllers
+from app.controllers import charts_routes

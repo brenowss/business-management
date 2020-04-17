@@ -1,4 +1,4 @@
-from app.models import Database
+from app.models.charts_sql import Database
 
 
 class DataProcessing:
@@ -18,7 +18,6 @@ class DataProcessing:
     def open_bills(self):
         for i in self.data:
             i['vlt_total'] = int(i['vlt_total'])
-        for i in self.data:
             b = str(i['data_docto'])
             b = b.replace('-', ' ')
             i['data_docto'] = tuple(b.split())
@@ -29,4 +28,11 @@ class DataProcessing:
             i['vlr_vendedor'] = int(i['vlr_vendedor'])
         return self.data
 
+    def last_30_months(self):
+        for i in self.data:
+            i['vlt_total'] = int(i['vlt_total'])
+            b = str(i['data_docto'])
+            b = b.replace('-', ' ')
+            i['data_docto'] = tuple(b.split())
+        return self.data
 
