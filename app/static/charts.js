@@ -48,6 +48,8 @@ function drawPieChart() {
     document.getElementById("pie_chart_div")
   );
   chart.draw(data, options);
+
+
 }
 
 // Bar chart
