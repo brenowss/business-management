@@ -41,6 +41,10 @@ body {
   font-family: "Sen", sans-serif;
   color: var(--dark-text-color);
 }
+button:focus {
+  border: none;
+  outline: none;
+}
 ul {
   padding: 0;
 }
@@ -289,6 +293,9 @@ button#demo::before {
   line-height: 1.5;
   font-size: medium;
 }
+.plan-selector-mobile {
+  display: none;
+}
 .pricing {
   display: flex;
   flex-direction: row;
@@ -347,8 +354,14 @@ button#demo::before {
 #form {
   box-sizing: border-box;
   width: 420px;
+  min-width: 300px;
   height: 350px;
-  padding: 42px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* padding: 42px 60px; */
+  padding: 35px;
+  box-sizing: border-box;
   border-radius: 25px;
   background-color: var(--orange);
 }
@@ -358,7 +371,7 @@ button#demo::before {
 #form textarea, #form input {
   box-sizing: border-box;
   resize: none;
-  width: 300px;
+  max-width: 100%;
   margin-bottom: 15px;
   border-radius: 4px;
   background-color: var(--text-color);
@@ -390,6 +403,132 @@ button#demo::before {
   vertical-align: middle;
   color: var(--text-color);
 }
+
+/* 
+Mobile 
+*/
+
+@media only screen and (max-width: 860px) {
+  #navbar ul {
+    padding: 0px;
+    padding-top: 15px;
+  }
+  #navbar ul li:not(:first-child) {
+    display: none;
+  }
+  #navbar #logo img{
+    height: 45px;
+  }
+  img#landing {
+    display: none;
+  }
+  .wrapper {
+    padding: 0 25px;
+  }
+  .slogan {
+    margin: 0;
+    display: flex;
+    padding: 20px;
+    font-size: 40px;
+    word-break: keep-all;
+  }
+  header .cta {
+    margin: 0;
+    text-align: center;
+  }
+  .features {
+    padding: 0;
+    display: block;
+  }
+  .features:first-child {
+    padding-top: 40px;
+  }
+  .features h2:first-child {
+    margin-top: 0;
+  }
+  .about .text p {
+    margin-top: 0;
+  }
+  .about .illustration svg {
+    height: 180px;
+    margin-top: 70px;
+  }
+  .about-decoration {
+    background-color: #3227ce;
+  }
+  .services.double-grid {
+    display: block;
+  }
+  .services .service-image {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .services .service-desc {
+    display: block;
+  }
+  .pricing {
+    margin-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .pricing-card {
+    flex: unset;
+    margin: 0;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+  }
+  .pricing-card * {
+    animation: fadeEffect 0.3s ease;
+  }
+  .pricing-card:not(:nth-child(1)) {
+    display: none;
+  }
+  .pricing-card:hover {
+    transform: unset;
+  }
+  .pricing-table-mobile {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .plan-selector-mobile {
+    max-width: 320px;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .plan-selector-mobile .bar-item {
+    flex: 1;
+    height: 40px;
+    background-color: var(--text-color);
+    border: none;
+    font-family: "Sen", sans-serif;
+  }
+  .plan-selector-mobile .bar-item.active {
+    background-color: var(--orange);
+  }
+  #team .member-card {
+    flex: unset;
+    margin: 0;
+    margin-bottom: 3px;
+    display: block;
+  }
+  #team .team{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+  }
+  #contact .double-grid {
+    display: block;
+  }
+  #contact.wrapper {
+    margin-bottom: 25px;
+  }
+}
+
 @keyframes leaves_1 {
   0% {
     transform: rotate(0deg);
@@ -416,4 +555,8 @@ button#demo::before {
   100% {
     transform: translateY(60px);
   }
+}
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
