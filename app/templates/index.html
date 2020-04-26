@@ -40,7 +40,7 @@ function drawPieChart() {
   data.addColumn("number", "Slices");
   data.addRows([
     {% for i in open_order %}
-    {{[i["nm_cliente"], i['vlr_aberto']] | safe}},
+    {{[i["nm_cliente"], i['vlt_total']] | safe}},
     {% endfor %}
   ]);
 
@@ -70,7 +70,7 @@ function drawBarChart() {
   var data = google.visualization.arrayToDataTable([
     ["Nome", "Quantidade", { role: "style" }],
     {% for i in top_seller %}
-    {{ [i['nm_representante'], i['vlr_vendedor'], "#b87333"] | safe }},
+    {{ [i['nm_representante'], i['vlt_total'], "#b87333"] | safe }},
     {% endfor %}
   ]);
 
