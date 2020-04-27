@@ -4,11 +4,11 @@ from datetime import date, timedelta
 
 class Database:
     def __init__(self):
-        host = "127.0.0.1"
-        user = "kerdos"
-        password = "123"
-        db = "kerdos"
-        self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
+        __host = "127.0.0.1"
+        __user = "kerdos"
+        __password = "123"
+        __db = "kerdos"
+        self.con = pymysql.connect(host=__host, user=__user, password=__password, db=__db, cursorclass=pymysql.cursors.
                                    DictCursor)
         self.cur = self.con.cursor()
 

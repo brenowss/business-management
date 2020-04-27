@@ -22,7 +22,6 @@
 
     google.charts.setOnLoadCallback(drawTrendlineChart);
 
-<<<<<<< HEAD
     // Callback that creates and populates a data table,
     // instantiates the pie chart, passes in the data and
     // draws it.
@@ -36,17 +35,6 @@
       data.addRows([
         {% for i in open_order %}
     { { [i["nm_cliente"], i['vlr_aberto']] | safe } },
-=======
-//Pie Chart
-function drawPieChart() {
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn("string", "Topping");
-  data.addColumn("number", "Slices");
-  data.addRows([
-    {% for i in open_order %}
-    {{[i["nm_cliente"], i['vlt_total']] | safe}},
->>>>>>> b5a0273c459d908f73ddf723b2bebe5878cde674
     {% endfor %}
   ]);
 
@@ -70,7 +58,6 @@ function drawPieChart() {
 
 }
 
-<<<<<<< HEAD
     // Bar chart
     function drawBarChart() {
       // Create the data table.
@@ -78,15 +65,6 @@ function drawPieChart() {
         ["Nome", "Quantidade", { role: "style" }],
         {% for i in top_seller %}
     { { [i['nm_representante'], i['vlr_vendedor'], "#b87333"] | safe } },
-=======
-// Bar chart
-function drawBarChart() {
-  // Create the data table.
-  var data = google.visualization.arrayToDataTable([
-    ["Nome", "Quantidade", { role: "style" }],
-    {% for i in top_seller %}
-    {{ [i['nm_representante'], i['vlt_total'], "#b87333"] | safe }},
->>>>>>> b5a0273c459d908f73ddf723b2bebe5878cde674
     {% endfor %}
   ]);
 
