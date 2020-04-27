@@ -16,7 +16,7 @@
   <header id="navbar">
     <ul>
       <li id="logo"><img src="../static/logo.svg" alt="Dataser"></li>
-      <li><a href="#navbar">Início</a></li>
+      <li class="active"><a href="#navbar">Início</a></li>
       <li><a href="#services">Serviços</a></li>
       <li><a href="#team">Equipe</a></li>
       <li><a href="#contact">Contato</a></li>
@@ -161,10 +161,10 @@
       <h1 class="center">Serviços</h1>
       <div class="double-grid services">
         <div class="service-image">
-          <div class="foto-fake">Software</div>
+          <img src="../static/kerdos-logo.png" alt="">
         </div>
         <div class="service-desc">
-          <h2>Software</h2>
+          <h2>Kerdos</h2>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur
             illum corporis animi explicabo earum doloremque magni accusamus
@@ -773,14 +773,14 @@
 
     <script>
       function openPlan(evt, plan) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("pricing-card");
+        var i, card, tablinks;
+        card = document.getElementsByClassName("pricing-card");
       
-        for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";
+        for (i = 0; i < card.length; i++) {
+          card[i].style.display = "none";
         }
         tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
+        for (i = 0; i < card.length; i++) {
           tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
         document.getElementById(plan).style.display = "block";

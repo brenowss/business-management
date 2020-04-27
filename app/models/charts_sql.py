@@ -5,7 +5,7 @@ from datetime import date, timedelta
 class Database:
     def __init__(self):
         host = "127.0.0.1"
-        user = "root"
+        user = "kerdos"
         password = "123"
         db = "kerdos"
         self.con = pymysql.connect(host=host, user=user, password=password, db=db, cursorclass=pymysql.cursors.
