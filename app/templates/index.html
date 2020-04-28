@@ -34,7 +34,7 @@
       data.addColumn("number", "Slices");
       data.addRows([
         {% for i in open_order %}
-    { { [i["nm_cliente"], i['vlr_aberto']] | safe } },
+    {{[i["nm_cliente"], i['vlt_total']] | safe}},
     {% endfor %}
   ]);
 
@@ -64,7 +64,7 @@
       var data = google.visualization.arrayToDataTable([
         ["Nome", "Quantidade", { role: "style" }],
         {% for i in top_seller %}
-    { { [i['nm_representante'], i['vlr_vendedor'], "#b87333"] | safe } },
+    {{ [i['nm_representante'], i['vlt_total'], "#b87333"] | safe }},
     {% endfor %}
   ]);
 
@@ -129,7 +129,7 @@
       var data = google.visualization.arrayToDataTable([
         ['X', 'Y'],
         {% for i in open_bill %}
-    [new Date{{ i['data_docto'] | safe }}, {{ i['vlt_total'] | safe }}],
+    [new Date{{i['data_docto'] | safe }}, {{ i['vlt_total'] | safe}}],
       {% endfor %}
       ]);
 
@@ -163,7 +163,7 @@
     var data = google.visualization.arrayToDataTable([
       ['X', 'Y'],
       {% for i in last_30_month %}
-    [new Date{{ i['data_docto'] | safe }}, {{ i['vlt_total'] | safe }}],
+    [new Date {{ i['data_docto'] | safe }}, {{ i['vlt_total'] | safe }}],
       {% endfor %}
       ]);
 
@@ -190,14 +190,12 @@
       }
     };
 
-    var chart = new google.visualization.ScatterChart(document.getElementById('trendline_chart_div'));
+    var chart = new google.visualization.ScatterChart(document.getElementById('trendline_chart_div_2'));
 
     chart.draw(data, options);
 }
 
   </script>
-  <!--    <script src="{{ url_for('static', filename='./charts.js') }}"></script>-->
-
   <link rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}" />
   <title>Nome da empresa - Kerdos</title>
 </head>
@@ -243,16 +241,16 @@
         </div>
       </div>
       <div class="card main-line-chart">
-        <div id="main_line_chart"></div>
+        <div></div>
       </div>
       <div class="two-grid">
-        <div class="card medium-card"></div>
-        <div class="card medium-card"></div>
+        <div class="card medium-card" id="pie_chart_div"></div>
+        <div class="card medium-card" id="trendline_chart_div_2"></div>
       </div>
       <div class="three-grid">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+        <div class="card" id="main_line_chart"></div>
+        <div class="card" id="column_chart_div"></div>
+        <div class="card" id="trendline_chart_div"></div>
       </div>
     </div>
   </main>
