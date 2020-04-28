@@ -215,6 +215,9 @@ main {
 .card.main-line-chart {
   height: 360px;
 }
+.card.main-line-chart #main_line_chart {
+  height: 100%;
+}
 .two-grid {
   display: flex;
   flex-wrap: nowrap;
