@@ -18,9 +18,7 @@ def decimal_format(data):
 
 
 def order_by_vlt_total(data):
-    print(data)
     data = sorted(data, key=lambda f_data: f_data['vlt_total'])
-    print(data)
     return data
 
 
