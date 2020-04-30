@@ -246,11 +246,11 @@
     <div class="cards">
       <div class="card welcome">
         <div class="hello">
-          <h1>Seja bem-vindo</h1>
+          <h1>Seja bem - vindo</h1>
           <h2>Nome da empresa</h2>
         </div>
         <div class="growth">
-          <h3>Seus ganhos de Setembro foram 116% maiores que no último mês.</h3>
+          <h3>Seus ganhos de Setembro foram <span class="growth-percentage">116%</span> maiores que no último mês.</h3>
         </div>
       </div>
       <div class="card main-line-chart">
@@ -271,8 +271,7 @@
   <!-- Modal de configuração -->
   <div class="cfg-modal hidden" id="cfg_modal">
     <h2>Configurações</h2>
-    <button id="modal_close"><img src="{{ url_for('static', filename='./close.svg') }}"
-        alt="Fechar configurações"></button>
+    <button id="modal_close">X</button>
     <div class="cfg">
       <div class="cfg-wrapper">
         <div class="cfg-label">

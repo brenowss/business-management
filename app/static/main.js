@@ -1,34 +1,55 @@
-var themeSwitch = document.getElementById("themeSwitch");
-var root = document.documentElement;
-  themeSwitch.addEventListener("change", function(event) {
-    resetTheme(); // update color theme
-  });
+// Start dark mode
+const themeSwitch = document.getElementById("themeSwitch");
 
-  function resetTheme() {
-    if (themeSwitch.checked) {
-        root.style.setProperty('--primary-color', '#121212')
-        root.style.setProperty('--terciary-color', '#f5f5f5')
-        root.style.setProperty('--card-color', '#383838')
-        root.style.setProperty('--card-text', '#f5f5f5')
-        root.style.setProperty('--card-border', '1px solid #95d47fb4')
-    }else{
-        root.style.setProperty('--primary-color', '#f5f5f5')
-        root.style.setProperty('--terciary-color', '#020024')
-        root.style.setProperty('--card-color', '#ffffff')
-        root.style.setProperty('--card-text', '#383838')
-        root.style.setProperty('--card-border', '1px solid #e9e9e9f6')
-    }
+let darkMode = localStorage.getItem('darkMode')
+
+const enableDarkMode = () => {
+  document.body.classList.add("dark-mode");
+  localStorage.setItem("darkMode", "enabled")
+}
+
+const disableDarkMode = () => {
+  document.body.classList.remove("dark-mode");
+  localStorage.setItem("darkMode", null)
+}
+
+if (darkMode === "enabled") {
+  enableDarkMode();
+  themeSwitch.checked = true;
+}
+
+themeSwitch.addEventListener("click", () => {
+  darkMode = localStorage.getItem('darkMode');
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
   }
+});
 
+// End dark mode
+
+// Start modal open and closening
 var modal_close = document.getElementById("modal_close");
 var modal_open = document.getElementById("modal_open");
 var modal = document.getElementById("cfg_modal");
 
-modal_close.addEventListener("click", function(){
+modal_close.addEventListener("click", function () {
   modal.classList.add("hidden");
 });
 
-modal_open.addEventListener("click", function(){
+modal_open.addEventListener("click", function () {
   modal.classList.remove("hidden");
 });
 
+// End modal
+
+// Start charts responsiveness to window resize
+
+window.addEventListener('resize', () => {
+  drawPieChart();
+  drawBarChart();
+  drawColumnChart();
+  drawTrendlineChart();
+  drawLineChart();
+});

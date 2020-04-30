@@ -19,7 +19,6 @@ created-at: February 02, 2020
   --secondary-color: #95d47f;
   --terciary-color: #020024;
   --card-color: #ffffff;
-  --card-border: 1px solid #e9e9e9f6;
   --navbar-color: linear-gradient(
     135deg,
     rgba(2, 0, 36, 1) 0%,
@@ -28,18 +27,11 @@ created-at: February 02, 2020
   --transition-speed: 400ms;
 }
 
-/* personalizando a scrollbar */
-body::-webkit-scrollbar {
-  width: 0.35rem;
-  animation: var(--transition-speed);
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--secondary-color);
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--terciary-color);
+.dark-mode {
+  --primary-color: #121212;
+  --terciary-color: #f5f5f5;
+  --card-color: #383838;
+  --card-text: #f5f5f5;
 }
 
 /* tirando a cor roxa dos links que ja foram visitados */
@@ -212,6 +204,9 @@ main {
   display: table-cell;
   width: 35%;
 }
+.growth-percentage {
+  color: #04c404;
+}
 .card.main-line-chart {
   height: 360px;
 }
@@ -240,16 +235,8 @@ main {
   margin-right: 15px;
 }
 
-
 /* fim da configuração do grid */
 
-@media only screen and (min-width: 600px) {
-  .navbar {
-    top: 0;
-    width: 5rem;
-    height: 100vh;
-  }
-}
 /* personalização dos charts */
 #css-override div div svg rect:nth-child(2) {
   fill: var(--card-color);
@@ -284,12 +271,12 @@ main {
 .cfg-modal button{
   border: none;
   background: none;
-}
-.cfg-modal button img{
   position: absolute;
   top: 20px;
   right: 20px;
-  fill: green;
+  font-size: xx-large;
+  font-weight: bolder;
+  color: var(--terciary-color);
   height: 1.5rem;
   cursor: pointer;
 }
@@ -374,4 +361,47 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+  main {
+    padding: 12px;
+  }
+  .two-grid, .three-grid {
+    display: block;
+  }
+  .card {
+    flex: unset !important;
+    display: block;
+    padding: 5px 13px;
+  }
+  .card.welcome {
+    display: block;
+  }
+  .welcome .hello, .welcome .growth{
+    display: block;
+    width: 100%;
+  }
+  .hello h1 {
+    font-size: large;
+    margin: 2px;
+  }
+  .hello h2 {
+    font-size: medium;
+    margin: 2px;
+  }
+  .welcome .growth h3 {
+    text-align: justify;
+    font-size: 12px;
+  }
+  .cfg-modal {
+    width: 80vw;
+  }
 }
