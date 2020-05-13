@@ -44,7 +44,7 @@ modal_open.addEventListener("click", function () {
 
 // End modal
 
-// Start charts responsiveness to window resize
+// Start charts responsiveness on window resize
 
 window.addEventListener('resize', () => {
   drawPieChart();

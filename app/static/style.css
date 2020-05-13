@@ -399,7 +399,7 @@ input:checked + .slider:before {
   }
   .welcome .growth h3 {
     text-align: justify;
-    font-size: 12px;
+    font-size: 14px;
   }
   .cfg-modal {
     width: 80vw;
