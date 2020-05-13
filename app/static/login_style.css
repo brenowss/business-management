@@ -95,6 +95,10 @@ body {
   width: 100%;
   margin-bottom: 20px;
 }
+.login-form-div input.wrong {
+  background-color: #f08080;
+  border: 2px solid #f82626c5;
+}
 .login-form-div input::placeholder {
   color: var(--terciary-color);
 }
@@ -104,6 +108,19 @@ label {
 .login-form-div a {
   font-size: 0.8rem;
   text-decoration: none;
+}
+.login-form-div #form .keep {
+  display: flex;
+  padding-left: 0;
+}
+.login-form-div #form .keep input {
+  width: 10%;
+  margin-left: 0;
+}
+.login-form-div #form .keep span {
+  width: 90%;
+  font-size: small;
+  transition: none;
 }
 #form_button {
   display: block;
@@ -196,6 +213,36 @@ h2.text-center {
   text-decoration: none;
 }
 
+.notification {
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  display: flex;
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  animation: fade-in 1s ease;
+}
+
+.notification .notification-close {
+  background-color: transparent;
+  border: none;
+  font-weight: 800;
+  font-size: medium;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.notification.wrong-password {
+  background-color: #ff191963;
+  border: 1px solid #e70202;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+/* Responsividade */
 @media only screen and (max-width: 1200px) {
   .login-form-div {
     margin: 10% 0 0 10%;
@@ -280,6 +327,14 @@ h2.text-center {
   .left-screen.hidden {
     height: 0;
     opacity: 0;
+  }
+  .notification {
+    top: 85px;
+    right: 0;
+    width: 90vw;
+    margin: 0 5vw;
+    box-sizing: border-box;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 650px) {
