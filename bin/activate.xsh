@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/natan/business-management"
+$VIRTUAL_ENV = r"/home/natan/Projetos/business-management"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

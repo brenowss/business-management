@@ -5,6 +5,7 @@ from pprint import pprint
 
 def date_format(data):
     for i in data:
+        i['data_docto_old'] = i['data_docto']
         b = str(i['data_docto'])
         b = b.replace('-', ' ')
         i['data_docto'] = tuple(b.split())
@@ -28,10 +29,12 @@ class DataProcessing:
 
     def __init__(self, data):
         self.data = data
+        # print(self.data)
 
     def open_orders(self):
         decimal_format(self.data)
         df = pd.DataFrame(self.data)
+        # print(self.data)
         self.data = df.groupby(['cod_cliente', 'nm_cliente'], as_index=False).sum()
         self.data = self.data.to_dict('records')
         self.data = order_by_vlt_total(self.data)
@@ -42,6 +45,10 @@ class DataProcessing:
         date_format(self.data)
         decimal_format(self.data)
         df = pd.DataFrame(self.data)
+        # print(self.data)
+        # a = pd.to_datetime(df['data_docto_old'])
+        # df['Semana'] = a.dt.to_period('W')
+        # self.data = df.groupby(['Semana', 'num_documento', 'data_docto'], as_index=False).sum()
         self.data = df.groupby(['num_documento', 'data_docto'], as_index=False).sum()
         self.data = self.data.to_dict('records')
         return self.data
@@ -52,10 +59,17 @@ class DataProcessing:
         self.data = df.groupby(['nm_representante', 'cod_vendedor'], as_index=False).sum()
         self.data = self.data.to_dict('records')
         self.data = order_by_vlt_total(self.data)
+        # print(self.data)
         return self.data
 
     def last_30_months(self):
         date_format(self.data)
         decimal_format(self.data)
         return self.data
+
+    def top_products(self):
+        decimal_format(self.data)
+        # print(self.data)
+        return self.data
+
 
