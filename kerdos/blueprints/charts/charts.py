@@ -1,11 +1,18 @@
-from app.models.charts_sql import Database
+from flask import Blueprint, render_template, url_for
+from kerdos.db import Database
+from jinja2 import TemplateNotFound
+from werkzeug.exceptions import abort
+# from app.models.charts_sql import Database
 import pandas as pd
 from pprint import pprint
 
 
+charts = Blueprint('charts', __name__, template_folder='templates', url_prefix='/kerdos/',  static_folder='static', static_url_path='/charts/static')
+
+
 def date_format(data):
     for i in data:
-        i['data_docto_old'] = i['data_docto']
+        # print(list(i.keys()))
         b = str(i['data_docto'])
         b = b.replace('-', ' ')
         i['data_docto'] = tuple(b.split())
@@ -24,8 +31,6 @@ def order_by_vlt_total(data):
 
 
 class DataProcessing:
-
-    db = Database()
 
     def __init__(self, data):
         self.data = data
@@ -73,3 +78,18 @@ class DataProcessing:
         return self.data
 
 
+@charts.route('/home/')
+def home():
+    dp = DataProcessing
+    db = Database()
+    try:
+        open_order = dp(db.open_order_sql()).open_orders()
+        open_bill = dp(db.open_bills_sql()).open_bills()
+        top_seller = dp(db.top_seller_sql()).top_sellers()
+        last_30_month = dp(db.last_30_months_sql()).last_30_months()
+        # print(last_30_month)
+        top_product = dp(db.top_products_sql()).top_products()
+        return render_template('index.html', open_order=open_order, open_bill=open_bill, top_seller=top_seller,
+                               last_30_month=last_30_month, top_product=top_product)
+    except TemplateNotFound:
+        abort(404)

@@ -5,17 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#3227ce" />
-  <link rel="stylesheet" href="../static/landing.css" />
+  <link rel="stylesheet" href="{{ url_for('.static', filename='./landing.css') }}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
   integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
-  <link rel="shortcut icon" href="../static/icon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ url_for('.static', filename='./icon.png') }}" type="image/x-icon">
   <title>Dataser Analytics</title>
 </head>
 
 <body>
   <header id="navbar">
     <ul>
-      <li id="logo"><img src="../static/logo.svg" alt="Dataser"></li>
+      <li id="logo"><img src="{{ url_for('.static', filename='./logo.svg') }}" alt="Dataser"></li>
       <li class="active"><a href="#navbar">Início</a></li>
       <li><a href="#services">Serviços</a></li>
       <li><a href="#team">Equipe</a></li>
@@ -33,7 +33,7 @@
       </button>
     </div>
     <div class="illustration">
-      <img src="../static/landing.svg" alt="" id="landing" />
+      <img src="{{ url_for('.static', filename='./landing.svg') }}" alt="" id="landing" />
     </div>
   </header>
   <main id="content">
@@ -161,7 +161,7 @@
       <h1 class="center">Serviços</h1>
       <div class="double-grid services">
         <div class="service-image">
-          <img src="../static/kerdos-logo.png" alt="">
+          <img src="{{ url_for('.static', filename='./kerdos-logo.png') }}" alt="">
         </div>
         <div class="service-desc">
           <h2>Kerdos</h2>
@@ -245,7 +245,7 @@
       <div class="team">
         <div class="member-card member-1">
           <div class="member-avatar">
-            <img src="../static/avatars/breno.png" alt="" />
+            <img src="{{ url_for('.static', filename='./avatars/breno.png') }}" alt="" />
           </div>
           <div class="member-desc">
             <h3>Desenvolvedor front-end</h3>
@@ -256,7 +256,7 @@
         </div>
         <div class="member-card member-2">
           <div class="member-avatar">
-            <img src="../static/avatars/sebastiao.png" alt="" />
+            <img src="{{ url_for('.static', filename='./avatars/sebastiao.png') }}" alt="" />
           </div>
           <div class="member-desc">
             <h3>Gerente de Projeto</h3>
@@ -267,7 +267,7 @@
         </div>
         <div class="member-card member-3">
           <div class="member-avatar">
-            <img src="../static/avatars/natan.png" alt="" />
+            <img src="{{ url_for('.static', filename='./avatars/natan.png') }}" alt="" />
           </div>
           <div class="member-desc">
             <h3>Desenvolvedor back-end</h3>

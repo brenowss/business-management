@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='login_style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('.static', filename='login_style.css') }}" />
   <title>Entre com sua conta empresarial</title>
 </head>
 
@@ -36,7 +36,7 @@
         </form>
         <button id="teste">mostrar notificação</button>
         <a href="">Esqueceu sua senha?</a>
-        <a id="form_button" href="{{ url_for('home')}}">Entrar</a>
+        <a id="form_button" href="{{ url_for('charts.home')}}">Entrar</a>
         <div class="inner-account-request">
           <button class="account-request" id="criar-conta" onclick="$('.investment').addClass('animate');">
             Ainda não tem sua conta? <br />
@@ -52,7 +52,7 @@
         <div class="magic-button">
           <a href="#register" class="account-request" id="account-request"
             onclick="$('.investment').addClass('animate');">Solicite agora
-            <img src="{{ url_for('static', filename='./arrow.svg') }}" alt="Seta, solicite sua conta" />
+            <img src="{{ url_for('.static', filename='./arrow.svg') }}" alt="Seta, solicite sua conta" />
           </a>
         </div>
       </div>
