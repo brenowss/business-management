@@ -1,5 +1,7 @@
 import pymysql
 from datetime import date, timedelta
+from kerdos.models import Company
+from flask_login import current_user
 
 
 class Database:
@@ -8,19 +10,10 @@ class Database:
         __host = "localhost"
         __user = "kerdos"
         __password = "123"
-        __db = "kerdos_1"
+        __db = f"{Company.query.filter_by(id=current_user.id).first().nome_db}"
         self.con = pymysql.connect(host=__host, user=__user, password=__password, db=__db, cursorclass=pymysql.cursors.
                                    DictCursor)
         self.cur = self.con.cursor()
-
-    # def login(self, login, password):
-    #     self.cur.execute(f"""select*from usuarios where nome = '{login}' and senha = '{password}'""")
-    #     result = self.cur.fetchall()
-    #     if not result:
-    #         self.cur.execute(f"""select*from usuarios where email = '{login}' and senha = '{password}'""")
-    #         result = self.cur.fetchall()
-    #         return result
-    #     return result
 
     def open_order_sql(self):
         self.cur.execute("""select pi.vlt_total, pb.cod_cliente, pb.nm_cliente
@@ -61,12 +54,10 @@ class Database:
     def last_30_months_sql(self):
         a = date.today() - timedelta(days=60)
         a = str(a)
-        print(a)
         self.cur.execute(f"""select nsi.vlt_total, data_docto 
                                 from nota_item nsi join nota_base nb on nb.key_nota = nsi.key_nota 
                                 where data_docto > '{a}';""")
         result = self.cur.fetchall()
-        print(result)
         return result
 
 

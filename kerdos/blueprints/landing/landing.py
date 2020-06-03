@@ -6,3 +6,8 @@ landing = Blueprint('landing', __name__, template_folder='templates', static_fol
 @landing.route('/', methods=['GET', 'POST'])
 def login():
     return render_template('landing-page.html')
+
+
+def init_app(app):
+    app.register_blueprint(landing)
+    

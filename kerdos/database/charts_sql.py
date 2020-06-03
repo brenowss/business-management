@@ -1,5 +1,6 @@
 import pymysql
 from datetime import date, timedelta
+from flask_login import current_user
 
 
 class Database:
@@ -8,7 +9,8 @@ class Database:
         __host = "localhost"
         __user = "kerdos"
         __password = "123"
-        __db = "kerdos_1"
+        __db = f"{current_user.nome}"
+        # print(__db)
         self.con = pymysql.connect(host=__host, user=__user, password=__password, db=__db, cursorclass=pymysql.cursors.
                                    DictCursor)
         self.cur = self.con.cursor()
